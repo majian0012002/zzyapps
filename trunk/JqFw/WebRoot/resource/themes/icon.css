@@ -1,0 +1,204 @@
+.icon-blank{
+	background:url('icons/blank.gif') no-repeat;
+}
+.icon-add{
+	background:url('icons/edit_add.png') no-repeat;
+}
+.icon-edit, .icon-update{
+	background:url('icons/pencil.png') no-repeat;
+}
+.icon-remove,.icon-delete{
+	background:url('icons/edit_remove.png') no-repeat;
+}
+.icon-save{
+	background:url('icons/filesave.png') no-repeat;
+}
+.icon-cut{
+	background:url('icons/cut.png') no-repeat;
+}
+.icon-ok{
+	background:url('icons/ok.png') no-repeat;
+}
+.icon-no{
+	background:url('icons/no.png') no-repeat;
+}
+.icon-cancel{
+	background:url('icons/cancel.png') no-repeat;
+}
+.icon-reload{
+	background:url('icons/reload.png') no-repeat;
+}
+.icon-search{
+	background:url('icons/search.png') no-repeat;
+}
+.icon-print{
+	background:url('icons/print.png') no-repeat;
+}
+.icon-help{
+	background:url('icons/help.png') no-repeat;
+}
+.icon-undo{
+	background:url('icons/undo.png') no-repeat;
+}
+.icon-redo{
+	background:url('icons/redo.png') no-repeat;
+}
+.icon-back{
+	background:url('icons/back.png') no-repeat;
+}
+.icon-sum{
+	background:url('icons/sum.png') no-repeat;
+}
+
+
+
+
+/**自定义**/
+.icon-home{
+	background:url('icons/home.png') no-repeat;
+}
+.icon-skin{
+	background:url('icons/skin.gif') no-repeat;
+}
+.icon-pwd{
+	background:url('icons/pwd.gif') no-repeat;
+}
+.icon-login{
+	background:url('icons/login.gif') no-repeat;
+}
+.icon-add{
+	background:url('custom/16x16/table_(add)_16x16.gif') no-repeat;
+}
+.icon-delete{
+	background:url('custom/16x16/table_(delete)_16x16.gif') no-repeat;
+}
+.icon-update{
+	background:url('custom/16x16/table_(edit)_16x16.gif') no-repeat;
+}
+
+
+/**loading图标**/
+.icon-loading1{
+	background:url('custom/loading/01.gif') no-repeat;
+}
+.icon-loading2{
+	background:url('custom/loading/02.gif') no-repeat;
+}
+.icon-loading3{
+	background:url('custom/loading/03.gif') no-repeat;
+}
+.icon-loading4{
+	background:url('custom/loading/04.gif') no-repeat;
+}
+.icon-loading5{
+	background:url('custom/loading/05.gif') no-repeat;
+}
+.icon-loading6{
+	background:url('custom/loading/06.gif') no-repeat;
+}
+.icon-loading21{
+	background:url('custom/loading/21.gif') no-repeat;
+}
+.icon-loading30{
+	background:url('custom/loading/30.gif') no-repeat;
+}
+
+/**树样式**/
+.icon-tree-folder{
+	background:url('custom/16x16/folder.gif') no-repeat;
+}
+.icon-tree-action{
+	background:url('custom/16x16/action.gif') no-repeat;
+}
+.icon-tree-leaf{
+	background:url('custom/16x16/action.gif') no-repeat;
+}
+
+
+/**主界面logo*/
+*{
+	font-size:12px;
+}
+body {
+    font-family:helvetica,tahoma,verdana,sans-serif;
+    padding:20px;
+    font-size:13px;
+    margin:0;
+}
+
+/*下拉框样式*/
+.validatebox-text{
+	FONT-SIZE: 12px;
+	COLOR: #000000;
+	HEIGHT: 20px;
+	BACKGROUND-COLOR: #ffffff;
+	border: 1px solid #6E8CC0;
+	background-image: url(custom/input_bg1.jpg);
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+
+/**form内容区边框样式*/
+.form-content{
+	padding:10px;
+	background:#fff;
+	border:1px solid #ccc;
+	width:100%;
+}
+
+h2 {
+    font-size:18px;
+    color:#333;
+    font-weight:bold;
+    margin:0;
+    margin-bottom:15px;
+}
+.demo-info{
+	background:#FFFEE6;
+	color:#8F5700;
+	padding:12px;
+}
+.demo-tip{
+	width:24px;
+	height:16px;
+	float:left;
+}
+
+/**红色**/
+.red {color: red;}
+/**蓝色**/
+.blue {color: #4E4EF9;}
+
+
+/**
+ *	登录界面样式
+ */
+
+/**
+ * layout top ==============================================
+ */
+#layout-top .ad {
+	background-repeat: no-repeat;
+	background-position: right;
+	position: absolute;
+    width: 50%;
+	right: 0px;
+	top: 0px;
+}
+/**
+.main-top-logo{
+	background:url('custom/logo.jpg') no-repeat;
+}*/
+
+/**主界面左菜单头*/
+.main-left-header{
+	line-height:25px;
+	font-size:22px;
+	text-align:center;
+}
+
+
+
+
+
+

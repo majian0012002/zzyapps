@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="JqFw"
+  id="myeclipse.1320977329676"
+  context-root="/JqFw"
+  j2ee-spec="6.0"
+  archive="JqFw.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+
