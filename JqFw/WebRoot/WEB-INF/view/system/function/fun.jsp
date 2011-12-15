@@ -25,8 +25,8 @@
 						<a id="remove" href="#" class="easyui-linkbutton"  iconCls="icon-delete">删除</a>
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;						
 						<a id="showRoleBtn" href="#" class="easyui-linkbutton"  iconCls="icon-add">角色授权</a>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;						
-						<a id="showRoleBtn" href="${path}/sys/fun/initFunOrder" class="easyui-linkbutton"  iconCls="icon-add">功能排序</a>
+<%--						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;						--%>
+<%--						<a id="showRoleBtn" href="${path}/sys/fun/initFunOrder" class="easyui-linkbutton"  iconCls="icon-add">功能排序</a>--%>
 					</td>
 				</tr>
 			</table>		
@@ -48,6 +48,7 @@
 						<th field="code" width="80">编号</th>
 						<th field="type" width="120" formatter="Fmt.funsType">类型</th>
 						<th field="status" width="50" formatter="Fmt.status">状态</th>
+						<th field="orderInd" width="50">排序号</th>
 						<th field="remark" width="150">备注</th>
 					</tr>
 				</thead>
@@ -87,9 +88,12 @@
 								<td><input class="easyui-validatebox" type="text"  name="parentName"/></td>
 							</tr>
 							<tr>
-								
 								<td>菜单路径：</td>
-								<td colspan="3"><input class="easyui-validatebox" type="text"  name="uiPath" validType="length[1,500]" required="true" style="width:300px;"/></td>
+								<td colspan="2"><input class="easyui-validatebox" type="text"  name="uiPath" validType="length[1,500]" required="true" style="width:300px;"/></td>
+								<td>
+									排序号：
+									<input name="orderInd" size="9" class="easyui-validatebox"/>
+								</td>
 							</tr>
 							<tr>
 								<td>功能类型：</td>

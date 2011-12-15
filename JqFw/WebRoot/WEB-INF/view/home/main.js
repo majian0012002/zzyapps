@@ -18,19 +18,26 @@ Wide['Main'] = function(){
 		initEvent: function(){
 			
 		},
+		
 		/**
 		 * 添加tab
 		 */
 		addTab: function(fun){
 			var tab = mainTabsEl.tabs('getSelected');
-			mainTabsEl.tabs('update', {
-				tab: tab,
-				options:{
-					title: fun['name'],
-					iconCls:'icon-save',
-					content: Wide.iframe(fun['uiPath'])
-				}
-			});
+			
+			$.timer(function(){
+				return !Wide.mainPageIsLoading;
+			}, function(){
+				Wide.mainPageIsLoading = true;
+				mainTabsEl.tabs('update', {
+					tab: tab,
+					options:{
+						title: fun['name'],
+						iconCls:'icon-save',
+						content: Wide.iframe(fun['uiPath'])
+					}
+				});	
+			}, 100);
 		}
 	};
 }();
