@@ -110,6 +110,9 @@
 			deltaX : 15,
 			deltaY : 15,
 			onBeforeDrag : function(e) {
+				$._treeDragParentEl = this.parentNode.parentNode.parentNode;
+				alert($(this.parentNode).html());
+				
 				if (e.which != 1) {
 					return false;
 				}
@@ -129,7 +132,6 @@
 				var d = Math
 						.sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
 				if (d > 3) {
-					$.msg.say($(this).html());
 					if($(this).draggable("proxy")){
 						$(this).draggable("proxy").show();					
 					}
@@ -137,13 +139,27 @@
 				this.pageY = e.pageY;
 			},
 			onStopDrag : function() {
-				alert($(this).html());
 				$(this).next("ul").find("div.tree-node").droppable({
 							accept : "div.tree-node"
 						});
 			}
 		}).droppable({
-			accept : "div.tree-node",
+//			accept : "div.tree-node",
+			accept : function(e){
+				return false;
+				
+				var _target = e.data.target;
+				var _tarParent = _target.parentNode.parentNode.parentNode;
+				var _parent = $._treeDragParentEl;
+				alert(_parent)
+				if(!_parent || _parent!=_tarParent)return false;
+				var flag = $(_parent).find('div.tree-node').filter(function() {
+					return this == _target;
+				}).length > 0;
+				
+				$.msg.say("accept fun::::::" + flag);
+				return flag;
+			},
 			onDragOver : function(e, _1a) {
 				var _1b = _1a.pageY;
 				var top = $(this).offset().top;
@@ -401,6 +417,7 @@
 				}
 				var _54 = $("<div class=\"tree-node\"></div>").appendTo(li);
 				_54.attr("node-id", _53.id);
+				
 //				$.data(_54[0], "tree-node", {
 //							id : _53.id,
 //							text : _53.text,
