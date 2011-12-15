@@ -85,7 +85,7 @@
 		
 		<!-- 维护表单form -->
 		<div id="formWin" class="easyui-window" 
-			closed="true" @JsonIgnoreProperties({ "cla_id" })
+			closed="true" 
 			modal="true" 
 			title="维护表单" 
 			resizable=false
@@ -153,7 +153,7 @@
 		
 		<!-- 设置功能window -->
 		<div id="funWin" class="easyui-window" 
-			title="维护表单" 
+			title="设置功能" 
 			closed="true"
 			style="width:450px;height:290px;">
 			
@@ -168,7 +168,7 @@
 							textField='name'
 							animate="false"
 							checkbox="true"
-							style="width:436px;height:220px"
+							style="width:400px;height:220px"
 							>
 						</ul>						
 						

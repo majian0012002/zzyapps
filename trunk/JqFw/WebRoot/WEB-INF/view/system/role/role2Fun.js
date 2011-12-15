@@ -74,9 +74,10 @@ Role2Fun = function(){
 		doSaveFun: function(){
 			var role = Role.getRoleSelected();
 			var funList = funTreeEl.tree('getAllChecked');
+			
 			role['smFuns'] = $.fetchListProp(funList, 'id');
 			role['smUsers'] = $.fetchListProp(role['smUsers'], 'id');
-			
+			role['smOrg'] = {id: role['smOrg']['id']};
 			Role.doSave(role);
 			
 		}

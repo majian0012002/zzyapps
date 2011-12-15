@@ -76,13 +76,14 @@ Fun = function(){
 				var formVal = funFormEl.form('getValue', true);
 				// 当前选中的行值 
 				var row = treegridEl.treegrid('getSelected');
+				
 				if(Fun.isNew){
 					formVal['id'] = formVal['code'];
-					if(row && row['id'] != '0'){
+					if(row && row['id']){
 						formVal['parentFun'] = {id: row['id']};
 					}
 				}else{
-					if(row && row['parentId'] != '0'){
+					if(row && row['parentId']){
 						formVal['parentFun'] = {id: row['parentId']};
 					}
 				}
@@ -161,6 +162,9 @@ Fun = function(){
 			$('#smOrgTypeCombobox').combobox('setValue', row['smOrgType']);
 			if(! $.isEmpty(row['parentId'])){
 				funFormEl.form('findField', 'parentName').val(treegridEl.treegrid('find',row['parentId'])['name'] );
+			}
+			if(row['type'] == 'SUBSYS'){
+				funFormEl.form('findField', 'uiPath').disable();
 			}
 			funFormEl.form('findField', 'parentName').disable();
 			formWinEl.window({title:'【修改】功能菜单'});
