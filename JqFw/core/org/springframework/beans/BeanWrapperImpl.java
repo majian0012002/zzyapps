@@ -808,25 +808,34 @@ public class BeanWrapperImpl extends AbstractPropertyAccessor implements BeanWra
 									set.size() + ", accessed using property path '" + propertyName + "'");
 						}
 						
-						if(index >= set.size()){
-							//zzy+
-							Type[] types = GenericsUtils.getMethodGenericReturnType(readMethod);
-							Class colletionCls = null;
-							if(types != null){
-								colletionCls = (Class)types[0];
-							}
-							value = colletionCls.newInstance();
-							set.add(value);
-						}else{
-							Iterator it = set.iterator();
-							for (int j = 0; it.hasNext(); j++) {
-								Object elem = it.next();
-								if (j == index) {
-									value = elem;
-									break;
-								}
-							}	
+						//zzy+ 解决set没有实例化，导致空指针异常的问题
+						Type[] types = GenericsUtils.getMethodGenericReturnType(readMethod);
+						Class colletionCls = null;
+						if(types != null){
+							colletionCls = (Class)types[0];
 						}
+						value = colletionCls.newInstance();
+						set.add(value);
+						
+//						if(index >= set.size()){
+//							//zzy+
+//							Type[] types = GenericsUtils.getMethodGenericReturnType(readMethod);
+//							Class colletionCls = null;
+//							if(types != null){
+//								colletionCls = (Class)types[0];
+//							}
+//							value = colletionCls.newInstance();
+//							set.add(value);
+//						}else{
+//							Iterator it = set.iterator();
+//							for (int j = 0; it.hasNext(); j++) {
+//								Object elem = it.next();
+//								if (j == index) {
+//									value = elem;
+//									break;
+//								}
+//							}	
+//						}
 					}
 					else if (value instanceof Map) {
 						Map map = (Map) value;
