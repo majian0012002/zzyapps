@@ -105,7 +105,7 @@ public class LoginService {
 	 * @return
 	 */
 	private List<SmFunction> getFirstFun(){
-		return this.smFunctionDao.find("select a from SmFunction a where a.status=1 and a.parentFun is null");
+		return this.smFunctionDao.find("select a from SmFunction a where a.status=1 and a.parentFun is null order by a.orderInd");
 	}
 	
 	/**
