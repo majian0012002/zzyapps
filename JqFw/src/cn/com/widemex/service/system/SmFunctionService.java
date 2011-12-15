@@ -67,15 +67,15 @@ public class SmFunctionService {
 			page.setWhereParams(new Object[]{id});
 		}*/
 		
-		List<SmFunction> list = this.smFunctionDao.findBy("status", (short)1);
+		List<SmFunction> list = this.smFunctionDao.find(" from SmFunction a where a.status=? order by a.orderInd ASC ", (short)1);
 		
-		for (SmFunction fun : list) {
+		for (SmFunction fun : list) { 
 			if(fun.getParentFun() != null){
 				fun.setParentId(fun.getParentFun().getId());
 			}
-			//if(fun.getChildrenFuns().size() == 0){
-				fun.setState("open");
-			//}
+//			if(fun.getChildrenFuns().size() == 0){
+				fun.setState("closed");
+//			}
 		}
 		page.setRows(list);
 		
