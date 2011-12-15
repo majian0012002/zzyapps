@@ -49,7 +49,11 @@ Wide = function(){
 			});
 			
 			$.cookie('skin', skinName, 365);
-		}
+		},
+		/**
+		 * 主界面是否正在加载
+		 */
+		mainPageIsLoading: false
 	}; 
 	
 }();
@@ -195,6 +199,7 @@ $(function(){
 	});
 	
 	
+	// 换肤
 	var skinName = null;
 	if(Wide.parentWindow != null){
 		skinName = Wide.parentWindow.$.cookie('skin');
@@ -202,6 +207,14 @@ $(function(){
 		skinName = $.cookie('skin');
 	}
 	Wide.changeSkin( skinName || 'blue');
+	
+	// 监听主界面的iframe的渲染情况
+	if(Wide.parentWindow && Wide.parentWindow.Wide){
+		$.defer(function(){
+			Wide.parentWindow.Wide.mainPageIsLoading = false;
+		}, 1000);
+	}
+	
 	
 });
 
