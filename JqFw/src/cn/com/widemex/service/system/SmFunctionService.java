@@ -74,8 +74,10 @@ public class SmFunctionService {
 				fun.setParentId(fun.getParentFun().getId());
 			}
 //			if(fun.getChildrenFuns().size() == 0){
-				fun.setState("closed");
+//				fun.setState("open");
 //			}
+			
+			fun.setLoaded(true);
 		}
 		page.setRows(list);
 		

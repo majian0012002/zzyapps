@@ -31,11 +31,11 @@ public class MyHandlerInterceptor extends HandlerInterceptorAdapter {
 			String rootPath = sc.getContextPath();
 			
 			String str = 
-				"<link rel=\"stylesheet\" type=\"text/css\" href=\"" + rootPath + "/resource/themes/gray/easyui.css\" rel=\"stylesheet\" title=\"gray\"> \n" +
-				"<link rel=\"stylesheet\" type=\"text/css\" href=\"" + rootPath + "/resource/themes/green/easyui.css\" rel=\"stylesheet\" title=\"green\"> \n"+
-				"<link rel=\"stylesheet\" type=\"text/css\" href=\"" + rootPath + "/resource/themes/orange/easyui.css\" rel=\"stylesheet\" title=\"orange\"> \n"+
-				"<link rel=\"stylesheet\" type=\"text/css\" href=\"" + rootPath + "/resource/themes/default/easyui.css\" rel=\"stylesheet\" title=\"blue\"> \n"+
-				"<link rel=\"stylesheet\" type=\"text/css\" href=\"" + rootPath + "/resource/themes/pink/easyui.css\" rel=\"stylesheet\" title=\"pink\"> \n";
+				"<link rel=\"stylesheet\" type=\"text/css\" href=\"" + rootPath + "/resource/themes/default/easyui.css\" rel=\"stylesheet\" title='skinStyle'> </link>\n";//+
+//				"<link rel=\"stylesheet\" type=\"text/css\" href=\"" + rootPath + "/resource/themes/gray/easyui.css\" rel=\"stylesheet\" title=\"gray\"> \n" +
+//				"<link rel=\"stylesheet\" type=\"text/css\" href=\"" + rootPath + "/resource/themes/green/easyui.css\" rel=\"stylesheet\" title=\"green\"> \n"+
+//				"<link rel=\"stylesheet\" type=\"text/css\" href=\"" + rootPath + "/resource/themes/orange/easyui.css\" rel=\"stylesheet\" title=\"orange\"> \n"+
+//				"<link rel=\"stylesheet\" type=\"text/css\" href=\"" + rootPath + "/resource/themes/pink/easyui.css\" rel=\"stylesheet\" title=\"pink\"> \n";
 			
 			
 			if("true".equals(isDebug)){
@@ -51,7 +51,7 @@ public class MyHandlerInterceptor extends HandlerInterceptorAdapter {
 						" 	<script type=\"text/javascript\" src=\"" + rootPath + "/resource/easyui/locale/easyui-lang-zh_CN.js" + "\" />\"></script>\n";
 			}
 			
-			str +=	" 	<script type=\"text/javascript\" src=\"" + rootPath + "/resource/wide/Wide.js" + "\" />\"></script>\n";
+			str +=	" 	<script type=\"text/javascript\" src=\"" + rootPath + "/resource/wide/Wide.js" + "\"></script>\n";
 			
 			
 			System.out.println("jqFW::::" + str);

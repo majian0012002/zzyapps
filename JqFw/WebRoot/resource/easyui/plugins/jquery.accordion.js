@@ -64,10 +64,10 @@ cc.addClass("accordion-noborder");
 }else{
 cc.removeClass("accordion-noborder");
 }
-var _15=cc.children("div[selected]");
+var _15=cc.children("div[selected=true]");
 cc.children("div").not(_15).attr("collapsed","true");
-if(_15.length==0){
-cc.children("div:first").attr("collapsed","false");
+if(_15.length==0){// zzy+
+//cc.children("div:first").attr("collapsed","false");
 }
 var _16=[];
 cc.children("div").each(function(){

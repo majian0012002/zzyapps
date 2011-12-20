@@ -450,7 +450,48 @@
 						}
 					}
 				}
+				
+				// 新渲染规则：添加了leaf属性，与open协调工作
+				// 				即，left判断是否是文件夹形式，state判断是否要打开文件夹
+				// 如果row有子节点，则
 				if (_53.children && _53.children.length) {
+					var _55 = $("<ul></ul>").appendTo(li);
+					if (_53.state == "open") {
+						$("<span class=\"tree-icon tree-folder tree-folder-open\"></span>")
+								.addClass(_53.iconCls).prependTo(_54);
+						$("<span class=\"tree-hit tree-expanded\"></span>")
+								.prependTo(_54);
+					} else {
+						$("<span class=\"tree-icon tree-folder\"></span>")
+								.addClass(_53.iconCls).prependTo(_54);
+						$("<span class=\"tree-hit tree-collapsed\"></span>")
+								.prependTo(_54);
+						_55.css("display", "none");
+					}
+					_4e(_55, _53.children, _52 + 1);
+				} else {
+					// 当不是叶子节点，切状态为closed时，才为可请求节点
+					
+					if (/*_53.state == "closed"*/ !_53.leaf && _53.state == "closed") {
+						$("<span class=\"tree-icon tree-folder\"></span>")
+								.addClass(_53.iconCls).prependTo(_54);
+						$("<span class=\"tree-hit tree-collapsed\"></span>")
+								.prependTo(_54);
+					} else {
+						$("<span class=\"tree-icon tree-file\"></span>")
+								.addClass(_53.iconCls).prependTo(_54);
+						$("<span class=\"tree-indent\"></span>").prependTo(_54);
+					}
+				}
+				
+				
+				
+				
+				// 树渲染
+				// 渲染规则：
+				// 如果row有子节点，且当前状态为open，则直接打开；否则关闭
+				// 如果row没有子节点，切当前状态为closed，则是文件夹，否则直接是文件
+				/*if (_53.children && _53.children.length) {
 					var _55 = $("<ul></ul>").appendTo(li);
 					if (_53.state == "open") {
 						$("<span class=\"tree-icon tree-folder tree-folder-open\"></span>")
@@ -476,7 +517,7 @@
 								.addClass(_53.iconCls).prependTo(_54);
 						$("<span class=\"tree-indent\"></span>").prependTo(_54);
 					}
-				}
+				}*/
 				for (var j = 0; j < _52; j++) {
 					$("<span class=\"tree-indent\"></span>").prependTo(_54);
 				}
@@ -622,6 +663,7 @@
 		return rowBean;
 	}
 	
+	// 扩展事件处理
 	function _5f(_60, _61, _62) {
 		var _63 = $.data(_60, "tree").options;
 		var hit = $(_61).children("span.tree-hit");
@@ -655,6 +697,9 @@
 				}
 			}
 		} else {
+			//zzy+ 如果已经加载，则不做请求处理
+			if(_64['loaded'])return;
+			
 			var _65 = $("<ul style=\"display:none\"></ul>").insertAfter(_61);
 			_56(_60, _65[0], {
 						id : _64.id
@@ -990,7 +1035,15 @@
 			return null;
 		}
 	};
+	
+	/**
+	 * 选中某行记录
+	 */
 	function _b1(_b2, _b3) {
+		if($.isString(_b3)){
+			_b3 = $(_b2).find('div.tree-node[node-id='+_b3+']')[0];
+		}	
+		
 		var _b4 = $.data(_b2, "tree").options;
 		var _b5 = _36(_b2, _b3);
 		if (_b4.onBeforeSelect.call(_b2, _b5) == false) {
