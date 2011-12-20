@@ -1,6 +1,7 @@
 <%@ page language="java" import="java.util.*,cn.com.widemex.domain.system.SmFunction,cn.com.widemex.core.utils.reflection.Bean" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "
+http://www.w3.org/TR/html4/strict.dtd">
 <html>
 
 	<!-- 表头区 -->
@@ -9,28 +10,27 @@
 		${jqFW }
 		
 		<!-- 自定义JS -->
-		<script type="text/javascript" src="<c:url value="/view/home/left.js" />"></script>
-		<script type="text/javascript" src="<c:url value="/view/home/top.js" />"></script>
-		<script type="text/javascript" src="<c:url value="/view/home/main.js" />"></script>
-		<script type="text/javascript" src="<c:url value="/view/home/home.js" />"></script>
+		<script type="text/javascript" src="${path }/view/home/left.js" ></script>
+		<script type="text/javascript" src="${path }/view/home/top.js" ></script>
+		<script type="text/javascript" src="${path }/view/home/main.js" ></script>
+		<script type="text/javascript" src="${path }/view/home/home.js"></script>
 		
 	</head>
 
 	<!-- 内容区 -->
-	<body class="easyui-layout">
+	<body class="easyui-layout" >
 		<!-- Top布局 -->
-		<div region="north" style="height:70px;" id="layout-top" class="top">
-			<div >
-				<div class="logo"></div>
+		<div region="north" style="height:70px;" id="layout-top" class="top" >
+			<div>
+				<div class="logo" ></div>
             </div>
             
         	<div class="ad" >
-        		<div id="top-info-div" style="text-align:right;padding:3px;" class="toolbar">
-        			<a href="#" class="easyui-linkbutton"  iconCls="icon-home" id="deskBtn">桌面</a>
-<%--        			<a href="#" class="easyui-linkbutton"  iconCls="icon-skin" id="skinBtnX">皮肤</a>--%>
-        			<a href="javascript:void(0)" id="mb2" class="easyui-menubutton" menu="#skinmb" plain="false" iconCls="icon-skin">皮肤</a>
-        			<div id="skinmb" style="width:100px;">
-						<div id="skin-blue">默认</div>
+        		<div id="top-info-div" style="text-align:right;padding:3px;" class="toolbar" >
+        			<a href="#" class="easyui-linkbutton"  iconCls="icon-home" id="deskBtn" >桌面</a>
+        			<a href="javascript:void(0)" id="mb2" class="easyui-menubutton" menu="#skinmb" plain="false" iconCls="icon-skin" >皮肤</a>
+        			<div id="skinmb" style="width:100px;" >
+						<div id="skin-default">默认</div>
 						<div id="skin-pink">红色</div>
 						<div id="skin-orange">橘色</div>
 						<div id="skin-gray">灰色</div>
@@ -39,28 +39,10 @@
 					<a href="#" class="easyui-linkbutton"  iconCls="icon-cancel" id="quitSysBtn" >退出系统</a>
         		</div>
         		
-        		<div id="top-info-div" style="text-align:right;padding:3px;" class="toolbar">
+        		<div id="top-info-div" style="text-align:right;padding:3px;" class="toolbar" >
         			当前用户：${USER_INFO.acc }【${USER_INFO.name }】
         			<a href="#" class="easyui-linkbutton" id="modiPwd" iconCls="icon-pwd" title="修改个人信息！"></a>
         		</div>
-        		
-        		<!-- 
-				<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="620" height="60">
-				    <param name="movie" value="<c:url value="/resource/themes/custom/huangshan.swf"/>"/>
-				    <param name="quality" value="high"/>
-				 	<param name="menu" value="false"/>
-				 	<param name="wmode" value="Opaque"/>
-				    <embed 
-				    	src="<c:url value="/resource/themes/custom/huangshan.swf"/>" 
-				    	quality="high" 
-				    	pluginspage="http://www.macromedia.com/go/getflashplayer" 
-				    	type="application/x-shockwave-flash" 
-				    	width="530" 
-				    	height="63"
-				    	wmode="Opaque">
-				    </embed>
-				</object>   
-				 -->    	
         	</div>
 		</div>
 		
@@ -69,22 +51,16 @@
 		<div region="west" split="true" title="功能菜单"
 			headerCls="main-left-header"
 			style="width: 280px; padding1: 1px; overflow: hidden;">
-			<div class="easyui-accordion" fit="true" border="false">
+			<div class="easyui-accordion" fit="true" border="false" id="menu">
 				<%
 					List<SmFunction> funList = (List<SmFunction>)session.getAttribute("USER_FUN_LIST");
 					for(int index=0; index<funList.size(); index++){
 						SmFunction fun = funList.get(index);
-						out.println("<div title='"+ fun.getName() +"'>\n " +
+						out.println("<div title='"+ fun.getName() +"' selected=false>\n " +
 								"<ul class='easyui-tree' id='FunTree-"+ fun.getId() +"' animate='true' textField='name' other='Wide.Left.funEvent'>\n " +
 								"</ul> \n"+
 								"</div>\n");					
 					}
-					
-					// 赋值给JS公共变量
-					out.println("<script type=\"text/javascript\" > "+
-								"USER_FUN_LIST= " +Bean.toJson(funList).replaceAll("childrenFuns", "children")+ "; "+
-								"USER_INFO=" +Bean.toJson(session.getAttribute("USER_INFO"))+
-								"</script>");
 				%>
 			</div>
 		</div>
@@ -97,25 +73,6 @@
 				<div title="首页" closable="false" >
 					<iframe src="" style="width:100%;height:100%;" frameborder="no" scrolling="auto"></iframe>
 				</div>
-				<!-- 
-				<div title="组织机构类型维护" closable="true" >
-					<iframe src="/JqFw/sys/orgType" style="width:100%;height:100%;" frameborder="no" scrolling="auto"></iframe>
-				</div>
-				<div title="组织机构维护" style="overflow:hidden;">
-					<iframe src="/JqFw/sys/org" style="width:100%;height:100%;" frameborder="no" scrolling="auto"></iframe>
-				</div>
-				 <div title="用户信息维护" icon="icon-reload" closable="true"
-					style="overflow: hidden; padding: 5px;">
-					<iframe src="/JqFw/sys/user" style="width:100%;height:100%;" frameborder="no" scrolling="auto"></iframe>
-				</div>
-				<div title="角色维护" icon="icon-reload" closable="true"
-					style="overflow: hidden; padding: 5px;">
-					<iframe src="/JqFw/sys/role" style="width:100%;height:100%;" frameborder="no" scrolling="auto"></iframe>
-				</div>
-				<div title="功能维护" icon="icon-reload" closable="true"
-					style="overflow: hidden; padding: 5px;">
-					<iframe src="/JqFw/sys/fun" style="width:100%;height:100%;" frameborder="no" scrolling="auto"></iframe>
-				</div>-->
 			</div>
 		</div>
 		
@@ -199,6 +156,13 @@
 			</div>
 		</div>
 		
+		<script type="text/javascript">
+		<%
+			// 赋值给JS公共变量
+			out.println("USER_FUN_LIST= " +Bean.toJson(session.getAttribute("USER_FUN_LIST")).replaceAll("childrenFuns", "children")+ "; ");
+			out.println("USER_INFO=" +Bean.toJson(session.getAttribute("USER_INFO")));
+		%>
+		</script>
 
 
 	</body>

@@ -30,22 +30,26 @@ Wide = function(){
 		 */
 		changeSkin: function(skinName)
 		{
-			$('link[rel=stylesheet][title]').each(function(i) 
+			skinName = skinName=='blue'?'default':skinName;
+			
+			var skinPath;
+			
+			$('link[rel=stylesheet][href*=/easyui.css][title]').each(function(i) 
 			{
-				if (this.getAttribute('title') == skinName){
-				 	this.disabled = false;
-				}else{
-					this.disabled = true;
-				}
+				var arr = $(this).attr('href').split('themes/');
+				arr[1] = skinName +'/easyui.css';
+				skinPath = arr.join('themes/');
+				$(this).attr('href', skinPath);
+//				if (this.getAttribute('title') == skinName){
+//				 	this.disabled = false;
+//				}else{
+//					this.disabled = true;
+//				}
 			});
 			
-			$("iframe").contents().find('link[rel=stylesheet][title]').each(function(i) 
+			$("iframe").contents().find('link[rel=stylesheet][href*="/easyui.css"][title]').each(function(i) 
 			{
-				if (this.getAttribute('title') == skinName){
-				 	this.disabled = false;
-				}else{
-					this.disabled = true;
-				}
+				$(this).attr('href', skinPath);
 			});
 			
 			$.cookie('skin', skinName, 365);

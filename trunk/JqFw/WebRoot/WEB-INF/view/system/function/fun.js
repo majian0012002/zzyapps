@@ -260,17 +260,9 @@ Fun = function(){
  * @type 
  */
 var iconClsArr = [
-	{iconCls:'icon-ok', text:'图标01'},
-	{iconCls:'icon-concel', text:'图标02'},
-	{iconCls:'', text:'图标03'},
-	{iconCls:'', text:'图标04'},
-	{iconCls:'', text:'图标05'},
-	{iconCls:'', text:'图标06'},
-	{iconCls:'', text:'图标07'},
-	{iconCls:'', text:'图标08'},
-	{iconCls:'', text:'图标09'},
-	{iconCls:'', text:'图标10'},
-	{iconCls:'', text:'图标11'}
+	{iconCls:'icon-fun-edit', text:'编辑图标'},
+	{iconCls:'icon-fun-search', text:'查询图标'},
+	{iconCls:'icon-fun-subsys', text:'子系统图标'}
 ];
 
 /**

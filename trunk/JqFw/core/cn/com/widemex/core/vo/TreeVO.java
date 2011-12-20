@@ -25,9 +25,35 @@ public class TreeVO {
 	/**是否选中当前行*/
 	private boolean checked=false;
 	
+	/**是否是叶子节点*/
+	private boolean leaf = false;
+	
+	/**是否已经加载*/
+	private boolean loaded = false;
+	
+	
+	
+	
+	public boolean isLoaded() {
+		return loaded;
+	}
 
-	
-	
+	public void setLoaded(boolean loaded) {
+		this.loaded = loaded;
+	}
+
+	public boolean isLeaf() {
+		return leaf;
+	}
+
+	public void setLeaf(boolean leaf) {
+		// 如果是叶子节点，且节点样式为文件夹，则转换成文件样式形式
+		if(leaf && "icon-tree-folder".equals(iconCls)){
+			this.iconCls = "icon-tree-action";
+		}
+		this.leaf = leaf;
+	}
+
 	public boolean isChecked() {
 		return checked;
 	}

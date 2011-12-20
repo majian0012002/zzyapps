@@ -28,9 +28,10 @@ Wide['Top'] = function(){
 		initCom: function(){
 			userFormWinEl.window({
 				onClose: function(){
-					userFormEl.form('clear');
+//					userFormEl.form('clear');
 				},
 				onOpen: function(){
+					userFormEl.form('clear');
 					userFormEl.form('load', USER_INFO);
 					userFormEl.find('input[name=smOrgText]').val(USER_INFO['smOrg']['name']);
 				}

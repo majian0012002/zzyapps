@@ -127,6 +127,14 @@ public class SmFunction extends TreeVO implements java.io.Serializable {
 
 	public void setType(String type) {
 		this.type = type;
+		
+		if("BASE".equals(this.type)){
+			this.setLeaf(true);
+			this.setState("open");
+		}else{
+			this.setState("closed");
+		}
+		
 	}
 
 	@Column(name = "FUN_PATH", length = 2000)

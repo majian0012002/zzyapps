@@ -25,8 +25,9 @@ Wide['Main'] = function(){
 		addTab: function(fun){
 			var tab = mainTabsEl.tabs('getSelected');
 			
-			$.timer(function(){
-				return !Wide.mainPageIsLoading;
+			var idx = 0;
+			$.timer(function(){ // 当主界面渲染后，或者2秒之后，执行更新主界面的操作
+				return !Wide.mainPageIsLoading || idx++>20;
 			}, function(){
 				Wide.mainPageIsLoading = true;
 				mainTabsEl.tabs('update', {

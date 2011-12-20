@@ -114,6 +114,17 @@
 	background:url('custom/16x16/action.gif') no-repeat;
 }
 
+/**系统功能样式*/
+.icon-fun-edit{
+	background:url('custom/fun-edit.gif') no-repeat;
+}
+.icon-fun-search{
+	background:url('custom/fun-search.png') no-repeat;
+}
+.icon-fun-subsys{
+	background:url('custom/fun-subsys.gif') no-repeat;
+}
+
 
 /**主界面logo*/
 *{
