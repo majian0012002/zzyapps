@@ -176,6 +176,7 @@ $.extend(Array.prototype, {
 
 // 公共预处理
 $(function(){
+	
 	/**
 	 * 监听公共事件
 	 */
