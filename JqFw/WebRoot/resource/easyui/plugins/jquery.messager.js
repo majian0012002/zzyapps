@@ -110,7 +110,7 @@ return false;
 _7(this,_12.showType,_12.showSpeed);
 return false;
 }});
-win.window("window").css({left:"",top:"0",right:0,zIndex:$.fn.window.defaults.zIndex++,bottom:0/*zzy+  -document.body.scrollTop-document.documentElement.scrollTop*/});
+win.window("window").css({left:"",top:"0",right:0,height:_12.height,zIndex:$.fn.window.defaults.zIndex++,bottom:0/*zzy+  -document.body.scrollTop-document.documentElement.scrollTop*/});
 win.window("open");
 },alert:function(_13,msg,_14,fn){
 var _15="<div>"+msg+"</div>";
@@ -234,7 +234,10 @@ $.extend($.msg,{
 	say: function(msg){
 		$.msg.show({
 			title: '提示',
-			msg: msg
+			msg: msg,
+			timeout: 2500,
+			showSpeed: 500/*,
+			height:200*/
 		});
 	},
 	/**
@@ -289,7 +292,7 @@ $.extend($.msg,{
 	 * @param {} msg
 	 * @param {} fn
 	 */
-	cfm: function(msg, fn){
+	cfm: function(msg, fn){   
 		$.msg.confirm("确认", msg, fn);
 	}
 });

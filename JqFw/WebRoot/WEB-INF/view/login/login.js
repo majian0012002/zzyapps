@@ -62,10 +62,7 @@ Login = function(){
 			  	$('#checkLoadingDiv').hide();
 				
 				if(data == true){
-					$.msg.show({
-						title:'登录校验',
-						msg:'登录成功'
-					});
+					$.msg.say("登录成功!");
 					
 					if(savePwdEl.attr('checked')){
 						$.cookie('user', $.encode({
@@ -81,10 +78,7 @@ Login = function(){
 					location.reload();
 //					window.location = window.location;//easyloader.base.replace('resource/easyui/','');
 				}else{
-					$.msg.show({
-						title:'登录校验',
-						msg:'登录失败，请确认你的账号密码是否正确!'
-					});
+					$.msg.say("登录失败，请确认你的账号密码是否正确!");
 					Login.reset();
 				}
 			  }

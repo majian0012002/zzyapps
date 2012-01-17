@@ -128,6 +128,11 @@ Fun = function(){
 		doAdd: function(){
 			var row = treegridEl.treegrid('getSelected');
 			
+			if(row['type'] == 'BASE') {
+				$.msg.say('只能对子系统添加信息!');
+				return;
+			}
+			
 			formWinEl.window({title:'【新增】功能菜单'});
 			formWinEl.window('open');
 			Fun.isNew = true; // 新增
