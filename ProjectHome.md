@@ -1,0 +1,1 @@
+前台用easyui、后台用springMVC+hibernate，全注解开发
